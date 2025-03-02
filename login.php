@@ -1,5 +1,4 @@
 <?php
-// login.php - User Authentication
 session_start();
 require 'db.php';
 
