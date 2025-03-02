@@ -5,11 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List - Sign Up</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function validateForm(event) {
+            console.log("Form submitted"); // Debugging log
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const contact = document.getElementById("contact").value;
+            const password = document.getElementById("password").value;
+
+            if (!username || !email || !contact || !password) {
+                alert("Please fill out all fields!");
+                event.preventDefault(); // Stop form submission
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="signup-container">
         <h2>Sign Up</h2>
-        <form action="#" method="POST">
+        <form action="signup.php" method="POST" onsubmit="validateForm(event)">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
             
@@ -21,6 +35,9 @@
             
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
+
+            <!-- Debugging hidden field (optional) -->
+            <input type="hidden" name="debug" value="true">
             
             <button type="submit">Sign Up</button>
             <p>Already have an account? <a href="index.html">Login</a></p>
