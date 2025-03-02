@@ -1,5 +1,4 @@
 <?php
-// signup.php - User Registration
 session_start();
 require 'db.php';
 
@@ -9,12 +8,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contact = $_POST['contact'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $stmt = $pdo->prepare("INSERT INTO users (username, email, contact, password_hash) VALUES (?, ?, ?, ?)");
     try {
+        echo "Debug: Username = $username, Email = $email, Contact = $contact <br>";
+
+        $stmt = $pdo->prepare("INSERT INTO users (username, email, contact, password_hash) VALUES (?, ?, ?, ?)");
         $stmt->execute([$username, $email, $contact, $password]);
-        echo "Registration successful. <a href='index.html'>Login here</a>";
+
+        echo "✅ Registration successful! <a href='index.html'>Login here</a>";
     } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        echo "❌ Error: " . $e->getMessage();  
     }
 }
 ?>
