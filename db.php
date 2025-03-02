@@ -1,9 +1,12 @@
 <?php
-// db.php - Database Connection
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 $host = 'localhost';
 $dbname = 'todo_db';
-$username = 'root'; // Change this if needed
-$password = ''; // Change this if needed
+$username = 'root';
+$password = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
