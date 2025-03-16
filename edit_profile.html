@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Edit Profile</h2>
+        <form action="update_profile.php" method="POST">
+            <label>Username:</label>
+            <input type="text" name="username" value="" required>
+            <label>Email:</label>
+            <input type="email" name="email" value="" required>
+            <label>Contact:</label>
+            <input type="text" name="contact" value="" required>
+            
+        </form>
+        <form action="upload_picture.php" method="POST" enctype="multipart/form-data">
+            <label>Upload Profile Picture:</label>
+            <input type="file" name="profile_picture" required>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
