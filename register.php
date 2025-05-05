@@ -1,6 +1,6 @@
 <?php
-// login.php
-// Login page (in root directory)
+// register.php
+// Registration page (in root directory)
 
 // Include required files
 require_once 'config/database.php';
@@ -9,7 +9,7 @@ require_once 'includes/session.php';
 require_once 'controllers/AuthController.php';
 
 // Set page title
-$pageTitle = 'Login';
+$pageTitle = 'Register';
 
 // If user is already logged in, redirect to dashboard
 if (isLoggedIn()) {
@@ -18,11 +18,11 @@ if (isLoggedIn()) {
 
 // Check if form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Process login form
+    // Process registration form
     $authController = new AuthController();
-    $authController->login();
+    $authController->register();
 } else {
-    // Display login form - don't include header/footer as the form already includes them
-    include 'views/auth/login_form.php';
+    // Display registration form - don't include header/footer if the form already includes them
+    include 'views/auth/register_form.php';
 }
 ?>
